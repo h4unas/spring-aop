@@ -10,7 +10,7 @@ public class MyLoggingAspect {
 	
 	//This is where we add all of our related advice for logging
 	//lets start with @Before advice
-	@Before("execution(public void addAccount())")
+	@Before("execution(public void add*())")
 	public void beforeAddBeforeAdvice() {
 		System.out.println("this is @Before advice");
 	}
