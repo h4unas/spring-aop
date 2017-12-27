@@ -4,12 +4,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AccountDAO {
+	
 	public void addAccount() {
 		System.out.println(getClass().getSimpleName());
+		System.out.println("==========================================");
 	}
 	public void printAccount() {
-		System.out.println("getClass().getMethod(printAccount(), null)");
-		//return "nothing";
+		System.out.println("Account value printed");
+		System.out.println("==========================================");
+		
+	}
+	public void addAccount(Account account) {
+		System.out.println("name ="+account.getName());
+		System.out.println("name ="+account.getNumber());
+		System.out.println("==========================================");
+		
 		
 	}
 }
