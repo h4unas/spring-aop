@@ -15,7 +15,7 @@ public class CloudAdviceAspect {
 	//lets start with @Before advice
 	@Before("org.spring.aop.aspect.AOPExpression.noGetterNoSetter()")
 	public void beforeAddBeforeAdvice() {
-		System.out.println("this is cloud advice");
+		System.out.println("@cloud advice");
 	}
 
 	

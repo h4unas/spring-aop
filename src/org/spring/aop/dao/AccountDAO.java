@@ -7,17 +7,17 @@ public class AccountDAO {
 	int no;
 	
 	public void addAccount() {
-		System.out.println(getClass().getSimpleName());
+		System.out.println("addAccount() with no arg:");
 		System.out.println("==========================================");
 	}
-	public void printAccount() {
-		System.out.println("Account value printed");
+	public void printAccount(Account account, String dept) {
+		System.out.println("Name is:"+account.name+" and his dept is :"+dept);
 		System.out.println("==========================================");
 		
 	}
 	public void addAccount(Account account) {
 		System.out.println("name ="+account.getName());
-		System.out.println("name ="+account.getNumber());
+		System.out.println("number ="+account.getNumber());
 		System.out.println("==========================================");
 		
 		

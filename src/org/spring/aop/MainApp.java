@@ -26,7 +26,7 @@ public class MainApp {
 
 				dao.addAccount(account);
 				
-				dao.printAccount();
+				dao.printAccount(account,"EEE");
 
 				dao.getNo();
 						

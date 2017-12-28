@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class LogAdviceAspect {
 	@Before("org.spring.aop.aspect.AOPExpression.noGetterNoSetter()")
 	public void logAdvice() {
-		System.out.println("log advice is called");
+		System.out.println("@log advice is called");
 	}
 
 }
