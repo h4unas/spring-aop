@@ -17,6 +17,9 @@ public class MainApp {
 				
 				//account class is created
 				Account account = new Account(1, "babu");
+//				account.getName();
+//				account.setName("surya");
+				
 				
 				// call the business methods
 				dao.addAccount();
@@ -25,7 +28,7 @@ public class MainApp {
 				
 				dao.printAccount();
 
-			
+				dao.getNo();
 						
 				// close the context
 				context.close();

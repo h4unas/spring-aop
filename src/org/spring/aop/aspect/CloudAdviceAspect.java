@@ -3,19 +3,21 @@ package org.spring.aop.aspect;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class MyLoggingAspect {
+@Order(1)
+public class CloudAdviceAspect {
 	
-	//pointcut declaration
-	@Pointcut("execution(* org.spring.aop.dao.*.*(..))")
-	private void forDaoPackage() {}
-	
+
 	//lets start with @Before advice
-	@Before("forDaoPackage()")
+	@Before("org.spring.aop.aspect.AOPExpression.noGetterNoSetter()")
 	public void beforeAddBeforeAdvice() {
-		System.out.println("this is @Before advice");
+		System.out.println("this is cloud advice");
 	}
+
+	
+	
 }

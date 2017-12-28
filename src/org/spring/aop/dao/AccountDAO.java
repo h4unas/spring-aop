@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AccountDAO {
+	int no;
 	
 	public void addAccount() {
 		System.out.println(getClass().getSimpleName());
@@ -21,4 +22,12 @@ public class AccountDAO {
 		
 		
 	}
+	public int getNo() {
+		System.out.println("getter method is called:");
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	
 }
