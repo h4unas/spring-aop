@@ -1,9 +1,13 @@
 package org.spring.aop.aspect;
 
+import java.util.List;
+
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.spring.aop.dao.Account;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +17,6 @@ import org.springframework.stereotype.Component;
 public class TestAdviceAspect {
 	@Before("org.spring.aop.aspect.AOPExpression.noGetterNoSetter()")
 	public void testAdvice(JoinPoint point) {
-		//System.out.println("Test advice is called");
 		
 		//display the method signature
 		MethodSignature signature = (MethodSignature)point.getSignature();
@@ -31,6 +34,22 @@ public class TestAdviceAspect {
 		
 	
 	}
+	@AfterReturning(
+			pointcut = "execution(* org.spring.aop.dao.AccountDAO.findAccount(..))", 
+			returning = "result")
+	public void afterReturningFindAccountAdvice(JoinPoint point, List<Account> result) {
+		
+		//print the method
+		String method = point.getSignature().toShortString();
+		System.out.println("@Test@After");
+		System.out.println("Method :"+method);
+		System.out.println("IT RETURNS :"+result);
+		
+		//print the returning
+		
+	}
+	
+	
 	
 
 }

@@ -1,5 +1,8 @@
 package org.spring.aop.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -22,6 +25,25 @@ public class AccountDAO {
 		
 		
 	}
+	public List<Account> findAccount() {
+		List<Account> accounts = new ArrayList<>();
+//		System.out.println("==========================================");
+		
+		//create sample account
+		Account account1 = new Account(2,"balakrishnan"); 
+		Account account2 = new Account(3,"pandi"); 
+		Account account3 = new Account(4,"durai singam");
+		
+		//add the accounts to list
+		accounts.add(account1);
+		accounts.add(account2);
+		accounts.add(account3);
+		
+		//return accounts
+		return accounts;
+		
+	}
+	
 	public int getNo() {
 		System.out.println("getter method is called:");
 		return no;
