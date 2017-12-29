@@ -43,9 +43,22 @@ public class TestAdviceAspect {
 		String method = point.getSignature().toShortString();
 		System.out.println("@Test@After");
 		System.out.println("Method :"+method);
-		System.out.println("IT RETURNS :"+result);
 		
 		//print the returning
+		System.out.println("IT RETURNS :"+result);
+		
+		//Post process the data
+		convertUpperCase(result);
+		System.out.println("After Post Process:");
+		System.out.println(result);
+	}
+	private void convertUpperCase(List<Account> result) {
+		//loop through the account
+		for (Account account : result) {
+			//change to upper
+			String upperCase = account.getName().toUpperCase();
+			account.setName(upperCase); 
+		}
 		
 	}
 	
