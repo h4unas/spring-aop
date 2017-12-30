@@ -3,6 +3,7 @@ package org.spring.aop.aspect;
 import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -46,7 +47,7 @@ public class TestAdviceAspect {
 		
 		//print the method
 		String method = point.getSignature().toShortString();
-		System.out.println("@Test@After");
+		System.out.println("@Test@AfterReturning");
 		System.out.println("Method :"+method);
 		
 		//print the returning
@@ -78,6 +79,18 @@ public class TestAdviceAspect {
 				//print the Exception
 				System.out.println("Catched Exception :"+exception);
 	}
+	
+	
+	//@After advice
+		@After("execution(* org.spring.aop.dao.AccountDAO.findAccount(..))")
+		public void afterThrowing(JoinPoint point) {
+			//print the method
+					String method = point.getSignature().toShortString();
+					System.out.println("@Test@After(final) ");
+					System.out.println("Method :"+method);
+					
+					
+		}
 	
 
 }

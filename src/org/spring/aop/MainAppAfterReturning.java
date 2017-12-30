@@ -15,7 +15,7 @@ public class MainAppAfterReturning {
 		// call findAccount method
 		List<Account> accounts = null;
 		try {
-			boolean trip= true;
+			boolean trip= false;
 			accounts = dao.findAccount(trip);
 		} catch (Exception e) {
 			//System.out.println("Excepion in main:"+e);
