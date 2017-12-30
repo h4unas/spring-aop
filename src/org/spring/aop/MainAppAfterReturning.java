@@ -10,15 +10,21 @@ public class MainAppAfterReturning {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		AccountDAO dao = context.getBean("accountDAO",AccountDAO.class);
-		
-		//call findAccount method
-		List<Account> accounts = dao.findAccount();
-		
-		//System.out.println(accounts);
-		
-		
-		//close the context
+		AccountDAO dao = context.getBean("accountDAO", AccountDAO.class);
+
+		// call findAccount method
+		List<Account> accounts = null;
+		try {
+			boolean trip= true;
+			accounts = dao.findAccount(trip);
+		} catch (Exception e) {
+			//System.out.println("Excepion in main:"+e);
+
+		}
+
+		// System.out.println(accounts);
+
+		// close the context
 		context.close();
 	}
 

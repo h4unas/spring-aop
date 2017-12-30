@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(2)
 public class TestAdviceAspect {
+	
+	//@Before advice 
 	@Before("org.spring.aop.aspect.AOPExpression.noGetterNoSetter()")
 	public void testAdvice(JoinPoint point) {
 		
@@ -34,6 +37,8 @@ public class TestAdviceAspect {
 		
 	
 	}
+	
+	//@AfterReturning advice
 	@AfterReturning(
 			pointcut = "execution(* org.spring.aop.dao.AccountDAO.findAccount(..))", 
 			returning = "result")
@@ -62,7 +67,17 @@ public class TestAdviceAspect {
 		
 	}
 	
-	
+	//@AfterThrowing advice
+	@AfterThrowing(pointcut = "execution(* org.spring.aop.dao.AccountDAO.findAccount(..))",throwing="exception")
+	public void afterThrowing(JoinPoint point, Throwable exception) {
+		//print the method
+				String method = point.getSignature().toShortString();
+				System.out.println("@Test@AfterThrowing");
+				System.out.println("Method :"+method);
+				
+				//print the Exception
+				System.out.println("Catched Exception :"+exception);
+	}
 	
 
 }

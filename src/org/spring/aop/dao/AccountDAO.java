@@ -25,7 +25,11 @@ public class AccountDAO {
 		
 		
 	}
-	public List<Account> findAccount() {
+	public List<Account> findAccount(boolean trip) {
+		
+		if(trip) {
+			throw new  RuntimeException("tripper is in on");
+		}
 		List<Account> accounts = new ArrayList<>();
 //		System.out.println("==========================================");
 		
